@@ -1,0 +1,22 @@
+﻿@model IEnumerable<BasicTestFarmer.Models.Product>
+@{
+                /**/
+
+                ViewBag.Title = "Searchproductview";
+}
+
+<h2>搜尋結果</h2>
+@foreach (var serachProduct in Model)
+{
+    <div class="col-md-3 px-2">
+        <div class="card  " style="width: 18rem;">
+            <a href="@Url.Action("ProductRendition","Home",new { id=serachProduct.ProductID})"><img class="card-img-top px-1 " src="@Url.Action("GetImageByte", "Products", new {area="Backstage", id =serachProduct.ProductID })" alt="Card image cap" height="200"></a>
+            <div class="card-body">
+                <h5 class="card-title pn" title="@serachProduct.ProductName">@serachProduct.ProductName</h5>
+                <h5 class="card-title">售價:$@serachProduct.Price</h5>
+                <p class="card-text des" title="@serachProduct.Description"></p>
+                <a href="#" class="btn btn-primary">加入購物車</a>
+            </div>
+        </div>
+    </div>
+}

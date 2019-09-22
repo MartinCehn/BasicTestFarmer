@@ -1,0 +1,121 @@
+﻿@model IEnumerable<BasicTestFarmer.Models.Member>
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>會員管理區</h2>
+<style>
+    .cre {
+        margin-right: 20px;
+    }
+</style>
+
+
+@*<div style="display:inline-block " class="cre ">
+    <span class="cre ">
+        @Html.ActionLink("新增會員資料", "Create")
+        <a href="~/UserCRUD/Home/Create" class="cre">新增會員資料</a>
+    </span>
+    <span class="cre">
+        @Html.ActionLink("產品管理區", "Product", "Product")
+    </span>
+</div>*@
+
+<div>
+    <a class="btn btn-primary" href="@Url.Action("Create","Members",new { area="Backstage"})" style="margin:5px">新增會員</a>
+    <a class="btn btn-success" href="@Url.Action("Product","Products",new { area="Backstage"})" style="margin:5px">產品管理區</a>
+    <a class="btn btn-info" href="~/Home/GetProduct" style="margin:5px">產品首頁</a>
+</div>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.UserID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UserAccount)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UsePass)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UserName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UserPhone)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UserSex)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.City)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Region)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Adress)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EMail)
+            </th>
+            <th scope="col" class="text-right pr-0">狀態</th>
+            <th scope="col" class="pl-0">修改</th>
+        </tr>
+    </thead>
+
+    @foreach (var item in Model)
+    {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.UserID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UserAccount)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UsePass)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UserName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UserPhone)
+        </td>
+        @*<td>
+            @Html.DisplayFor(modelItem => item.UserSex)
+        </td>*@
+        @{
+            if (item.UserSex.ToString() == "True")
+            {
+                <td>男性</td>
+            }
+            else
+            {
+                <td>女性</td>
+            }
+
+        }
+        <td>
+            @Html.DisplayFor(modelItem => item.City)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Region)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Adress)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EMail)
+        </td>
+        <td style="width:120px  ">
+            @Html.ActionLink("修改會員資料", "Edit", new { id = item.UserID }, new { @class = "btn btn-info" })
+        </td>
+        <td style="width:120px ;height:30px ">
+            @Html.ActionLink("刪除會員資料", "Delete", new { id = item.UserID }, new { onclick = "return confirm('確定要刪除嗎?')",
+           @class = "btn btn-danger" })
+        </td>
+    </tr>
+    }
+
+</table>

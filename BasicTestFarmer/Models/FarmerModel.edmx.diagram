@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="b8cbc8cf7c6a411eb91fe3f64412a92b" Name="Diagram1">
+        <EntityTypeShape EntityType="FarmerModel.ActivitI" Width="1.5" PointX="8.25" PointY="3.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="FarmerModel.ActivitIDetail" Width="1.5" PointX="10.5" PointY="10.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="FarmerModel.ActivityCategories" Width="1.5" PointX="6" PointY="3.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="FarmerModel.Chat" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FarmerModel.City" Width="1.5" PointX="10.75" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="FarmerModel.Identity" Width="1.5" PointX="0.75" PointY="16.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="FarmerModel.Member" Width="1.5" PointX="3" PointY="14.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="FarmerModel.MemberBonuss" Width="1.5" PointX="5.25" PointY="14.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="FarmerModel.MemberParticipation" Width="1.5" PointX="8.25" PointY="16.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="FarmerModel.NoticeMes" Width="1.5" PointX="5.25" PointY="20.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="FarmerModel.OrderDetail" Width="1.5" PointX="13.5" PointY="10.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="FarmerModel.Orders" Width="1.5" PointX="11.25" PointY="26.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="FarmerModel.OrderStatus" Width="1.5" PointX="9" PointY="24.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="FarmerModel.PaymentNerhod" Width="1.5" PointX="9" PointY="27.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="FarmerModel.Product" Width="1.5" PointX="8.25" PointY="9.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="FarmerModel.ProductCategoriesM" Width="1.5" PointX="8.25" PointY="6.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="FarmerModel.ProductCategory" Width="1.5" PointX="6" PointY="6.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="FarmerModel.ProductCommen" Width="1.5" PointX="13.5" PointY="14.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="FarmerModel.ProductSaleslist" Width="1.5" PointX="10.5" PointY="21" IsExpanded="true" />
+        <EntityTypeShape EntityType="FarmerModel.Reciever" Width="1.5" PointX="9" PointY="29.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="FarmerModel.Region" Width="1.5" PointX="13" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="FarmerModel.ShelvesState" Width="1.5" PointX="6" PointY="11.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="FarmerModel.Shopping" Width="1.5" PointX="13.5" PointY="18.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FarmerModel.SourceInformation" Width="1.5" PointX="0.75" PointY="13.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="FarmerModel.SubProductCategories" Width="1.5" PointX="10.5" PointY="7.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="FarmerModel.sysdiagrams" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FarmerModel.verify" Width="1.5" PointX="8.25" PointY="19.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="FarmerModel.VerifyCheckID" Width="1.5" PointX="6" PointY="23.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="FarmerModel.VerifyDetial" Width="1.5" PointX="10.5" PointY="17" IsExpanded="true" />
+        <AssociationConnector Association="FarmerModel.FK_ActivitI_ActivityCategories" ManuallyRouted="false" />
+        <AssociationConnector Association="FarmerModel.FK_ActivitIDetail_ActivitI" ManuallyRouted="false" />
+        <AssociationConnector Association="FarmerModel.FK_ActivitIDetail_Product" ManuallyRouted="false" />
+        <AssociationConnector Association="FarmerModel.FK_MemberParticipation_ActivitIDetail" ManuallyRouted="false" />
+        <AssociationConnector Association="FarmerModel.FK_Region_City" ManuallyRouted="false" />
+        <AssociationConnector Association="FarmerModel.FK_Member_Identity" ManuallyRouted="false" />
+        <AssociationConnector Association="FarmerModel.FK_Member_SourceInformation" ManuallyRouted="false" />
+        <AssociationConnector Association="FarmerModel.FK_MemberBonuss_Member" ManuallyRouted="false" />
+        <AssociationConnector Association="FarmerModel.FK_MemberParticipation_Member" ManuallyRouted="false" />
+        <AssociationConnector Association="FarmerModel.FK_NoticeMes_Member" ManuallyRouted="false" />
+        <AssociationConnector Association="FarmerModel.FK_Product_Member" ManuallyRouted="false" />
+        <AssociationConnector Association="FarmerModel.FK_ProductCommen_Member" ManuallyRouted="false" />
+        <AssociationConnector Association="FarmerModel.FK_Shopping_Member" ManuallyRouted="false" />
+        <AssociationConnector Association="FarmerModel.FK_verify_Member" ManuallyRouted="false" />
+        <AssociationConnector Association="FarmerModel.FK_OrderDetail_Order" ManuallyRouted="false" />
+        <AssociationConnector Association="FarmerModel.FK_OrderDetail_Product" ManuallyRouted="false" />
+        <AssociationConnector Association="FarmerModel.FK_Order_OrderStatus" ManuallyRouted="false" />
+        <AssociationConnector Association="FarmerModel.FK_Order_PaymentNerhod" ManuallyRouted="false" />
+        <AssociationConnector Association="FarmerModel.FK_Order_Reciever" ManuallyRouted="false" />
+        <AssociationConnector Association="FarmerModel.FK_Product_ShelvesState" ManuallyRouted="false" />
+        <AssociationConnector Association="FarmerModel.FK_ProductCommen_Product" ManuallyRouted="false" />
+        <AssociationConnector Association="FarmerModel.FK_ProductSaleslist_Product" ManuallyRouted="false" />
+        <AssociationConnector Association="FarmerModel.FK_Shopping_Product" ManuallyRouted="false" />
+        <AssociationConnector Association="FarmerModel.FK_SubProductCategories_Product" ManuallyRouted="false" />
+        <AssociationConnector Association="FarmerModel.FK_ProductCategoriesM_ProductCategory" ManuallyRouted="false" />
+        <AssociationConnector Association="FarmerModel.FK_SubProductCategories_ProductCategoriesM" ManuallyRouted="false" />
+        <AssociationConnector Association="FarmerModel.FK_verify_VerifyCheckID" ManuallyRouted="false" />
+        <AssociationConnector Association="FarmerModel.FK_VerifyDetial_verify" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

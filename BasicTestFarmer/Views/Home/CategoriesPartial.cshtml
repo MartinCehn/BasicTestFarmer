@@ -1,0 +1,21 @@
+﻿@model  BasicTestFarmer.Models.cateList
+
+@foreach (var cate in Model.Category)
+{
+    <div class="list-group">
+        <a href="" class="list-group-item list-group-item-action active">
+            @cate.CProductCategoryName
+        </a>
+    </div>
+    foreach (var cateM in Model.CategroyM)
+    {
+        if (cateM.ProductCategoriesID == cate.ProductCategoryID)
+        {
+            <a href="" class="list-group-item list-group-item-action">@cateM.CProductCategoriesMName</a>
+        }
+
+    }
+}
+
+
+

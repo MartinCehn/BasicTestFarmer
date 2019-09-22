@@ -1,0 +1,62 @@
+﻿@model List<BasicTestFarmer.Models.Det>
+@{
+    ViewBag.Title = "GetProduct";
+}
+@section Css{
+
+
+    <style>
+        .pn {
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+        }
+        .des {
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+        }
+        /*.pointer {
+            cursor: pointer;
+        }*/
+
+        .card:hover {
+            cursor: pointer;
+        }
+        .img-thumbnail {
+        width:200px;
+        height:200px;
+        }
+    </style>
+}
+<div class="row ">
+    <div class="col-3">
+        @Html.Action("CategoriesPartial","Home")
+    </div>
+    <div class="col-9">
+        <div class="row">
+            @foreach (var productitem in Model)
+            {
+                <div class="col-md-3 px-2">
+                    <div class="card  " style="width: 18rem;">
+                        <a href="@Url.Action("ProductRendition","Home",new { id=productitem.ProductID})"><img class="card-img-top px-1 " src="@Url.Action("GetImageByte", "Products", new {area="Backstage", id =productitem.ProductID })" alt="Card image cap" height="200"></a>
+                        <div class="card-body">
+                            <h5 class="card-title pn" title="@productitem.ProductName">@productitem.ProductName</h5>
+                            <h5 class="card-title">售價:$@productitem.Price</h5>
+                            <p class="card-text des" title="@productitem.Description"></p>
+                            <a href="@Url.Action("ShoppingCarAdd","Home",new { id=productitem.ProductID})" class="btn btn-primary">加入購物車</a>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
+@section Javascrip
+{
+
+    <script>
+      
+    </script>
+}

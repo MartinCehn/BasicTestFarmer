@@ -1,0 +1,323 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="FarmerModelStoreContainer" CdmEntityContainer="FarmerEntities">
+    <EntitySetMapping Name="ActivitI">
+      <EntityTypeMapping TypeName="FarmerModel.ActivitI">
+        <MappingFragment StoreEntitySet="ActivitI">
+          <ScalarProperty Name="ActivitID" ColumnName="ActivitID" />
+          <ScalarProperty Name="ActivityCategoriesID" ColumnName="ActivityCategoriesID" />
+          <ScalarProperty Name="ActivityName" ColumnName="ActivityName" />
+          <ScalarProperty Name="ActivityStatus" ColumnName="ActivityStatus" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ActivitIDetail">
+      <EntityTypeMapping TypeName="FarmerModel.ActivitIDetail">
+        <MappingFragment StoreEntitySet="ActivitIDetail">
+          <ScalarProperty Name="ActivitIDetailID" ColumnName="ActivitIDetailID" />
+          <ScalarProperty Name="ActivitIID" ColumnName="ActivitIID" />
+          <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+          <ScalarProperty Name="SalePrice" ColumnName="SalePrice" />
+          <ScalarProperty Name="StateDate" ColumnName="StateDate" />
+          <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ActivityCategories">
+      <EntityTypeMapping TypeName="FarmerModel.ActivityCategories">
+        <MappingFragment StoreEntitySet="ActivityCategories">
+          <ScalarProperty Name="ActivityCategoriesID" ColumnName="ActivityCategoriesID" />
+          <ScalarProperty Name="ActivityCategoriesName" ColumnName="ActivityCategoriesName" />
+          <ScalarProperty Name="ActivityCategoriesDescription" ColumnName="ActivityCategoriesDescription" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Chat">
+      <EntityTypeMapping TypeName="FarmerModel.Chat">
+        <MappingFragment StoreEntitySet="Chat">
+          <ScalarProperty Name="ChatID" ColumnName="ChatID" />
+          <ScalarProperty Name="SendID" ColumnName="SendID" />
+          <ScalarProperty Name="ReceiveID" ColumnName="ReceiveID" />
+          <ScalarProperty Name="ChatTime" ColumnName="ChatTime" />
+          <ScalarProperty Name="ChatText" ColumnName="ChatText" />
+          <ScalarProperty Name="ChatState" ColumnName="ChatState" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="City">
+      <EntityTypeMapping TypeName="FarmerModel.City">
+        <MappingFragment StoreEntitySet="City">
+          <ScalarProperty Name="CityID" ColumnName="CityID" />
+          <ScalarProperty Name="CityName" ColumnName="CityName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Identity">
+      <EntityTypeMapping TypeName="FarmerModel.Identity">
+        <MappingFragment StoreEntitySet="Identity">
+          <ScalarProperty Name="IdentityID" ColumnName="IdentityID" />
+          <ScalarProperty Name="IdentityName" ColumnName="IdentityName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Member">
+      <EntityTypeMapping TypeName="FarmerModel.Member">
+        <MappingFragment StoreEntitySet="Member">
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="UserAccount" ColumnName="UserAccount" />
+          <ScalarProperty Name="UsePass" ColumnName="UsePass" />
+          <ScalarProperty Name="GUID" ColumnName="GUID" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="UserPhone" ColumnName="UserPhone" />
+          <ScalarProperty Name="UserSex" ColumnName="UserSex" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="Region" ColumnName="Region" />
+          <ScalarProperty Name="Adress" ColumnName="Adress" />
+          <ScalarProperty Name="EMail" ColumnName="EMail" />
+          <ScalarProperty Name="RegistetedDate" ColumnName="RegistetedDate" />
+          <ScalarProperty Name="Permission" ColumnName="Permission" />
+          <ScalarProperty Name="SourceInformationID" ColumnName="SourceInformationID" />
+          <ScalarProperty Name="IdentityID" ColumnName="IdentityID" />
+          <ScalarProperty Name="MemberBonus" ColumnName="MemberBonus" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MemberBonuss">
+      <EntityTypeMapping TypeName="FarmerModel.MemberBonuss">
+        <MappingFragment StoreEntitySet="MemberBonuss">
+          <ScalarProperty Name="MemberBonusID" ColumnName="MemberBonusID" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="MemberBonus" ColumnName="MemberBonus" />
+          <ScalarProperty Name="AddDay" ColumnName="AddDay" />
+          <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+          <ScalarProperty Name="BonusStatus" ColumnName="BonusStatus" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MemberParticipation">
+      <EntityTypeMapping TypeName="FarmerModel.MemberParticipation">
+        <MappingFragment StoreEntitySet="MemberParticipation">
+          <ScalarProperty Name="MemberParticipationID" ColumnName="MemberParticipationID" />
+          <ScalarProperty Name="ActivitIDetailD" ColumnName="ActivitIDetailD" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="NoticeMes">
+      <EntityTypeMapping TypeName="FarmerModel.NoticeMes">
+        <MappingFragment StoreEntitySet="NoticeMes">
+          <ScalarProperty Name="NoticeMesID" ColumnName="NoticeMesID" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="NoticeMesTitle" ColumnName="NoticeMesTitle" />
+          <ScalarProperty Name="NoticeMesdetail" ColumnName="NoticeMesdetail" />
+          <ScalarProperty Name="NoticeMesTime" ColumnName="NoticeMesTime" />
+          <ScalarProperty Name="NoticeMesRead" ColumnName="NoticeMesRead" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OrderDetail">
+      <EntityTypeMapping TypeName="FarmerModel.OrderDetail">
+        <MappingFragment StoreEntitySet="OrderDetail">
+          <ScalarProperty Name="OrderDetailID" ColumnName="OrderDetailID" />
+          <ScalarProperty Name="OrderID" ColumnName="OrderID" />
+          <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="Subtotal" ColumnName="Subtotal" />
+          <ScalarProperty Name="OrderStatusID" ColumnName="OrderStatusID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Orders">
+      <EntityTypeMapping TypeName="FarmerModel.Orders">
+        <MappingFragment StoreEntitySet="Orders">
+          <ScalarProperty Name="OrderID" ColumnName="OrderID" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="RecieverID" ColumnName="RecieverID" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="PaymentNerhodID" ColumnName="PaymentNerhodID" />
+          <ScalarProperty Name="OrderStatusID" ColumnName="OrderStatusID" />
+          <ScalarProperty Name="TransactionDate" ColumnName="TransactionDate" />
+          <ScalarProperty Name="OrderRemarks" ColumnName="OrderRemarks" />
+          <ScalarProperty Name="Bonuss" ColumnName="Bonuss" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OrderStatus">
+      <EntityTypeMapping TypeName="FarmerModel.OrderStatus">
+        <MappingFragment StoreEntitySet="OrderStatus">
+          <ScalarProperty Name="OrderStatusID" ColumnName="OrderStatusID" />
+          <ScalarProperty Name="OrderStatusName" ColumnName="OrderStatusName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PaymentNerhod">
+      <EntityTypeMapping TypeName="FarmerModel.PaymentNerhod">
+        <MappingFragment StoreEntitySet="PaymentNerhod">
+          <ScalarProperty Name="PaymentNerhodID" ColumnName="PaymentNerhodID" />
+          <ScalarProperty Name="PaymentNerhod1" ColumnName="PaymentNerhod" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Product">
+      <EntityTypeMapping TypeName="FarmerModel.Product">
+        <MappingFragment StoreEntitySet="Product">
+          <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+          <ScalarProperty Name="ProductName" ColumnName="ProductName" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="PublishDate" ColumnName="PublishDate" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="ProductPositioning" ColumnName="ProductPositioning" />
+          <ScalarProperty Name="Shelves" ColumnName="Shelves" />
+          <ScalarProperty Name="ProducltImage" ColumnName="ProducltImage" />
+          <ScalarProperty Name="supplierID" ColumnName="supplierID" />
+          <ScalarProperty Name="QRcode" ColumnName="QRcode" />
+          <ScalarProperty Name="ShelvesStateID" ColumnName="ShelvesStateID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProductCategoriesM">
+      <EntityTypeMapping TypeName="FarmerModel.ProductCategoriesM">
+        <MappingFragment StoreEntitySet="ProductCategoriesM">
+          <ScalarProperty Name="ProductCategoriesMID" ColumnName="ProductCategoriesMID" />
+          <ScalarProperty Name="ProductCategoriesMName" ColumnName="ProductCategoriesMName" />
+          <ScalarProperty Name="ProductCategoriesID" ColumnName="ProductCategoriesID" />
+          <ScalarProperty Name="CProductCategoriesMName" ColumnName="CProductCategoriesMName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProductCategory">
+      <EntityTypeMapping TypeName="FarmerModel.ProductCategory">
+        <MappingFragment StoreEntitySet="ProductCategory">
+          <ScalarProperty Name="ProductCategoryID" ColumnName="ProductCategoryID" />
+          <ScalarProperty Name="ProductCategoryName" ColumnName="ProductCategoryName" />
+          <ScalarProperty Name="ProductDescription" ColumnName="ProductDescription" />
+          <ScalarProperty Name="ProductCategoryPicture" ColumnName="ProductCategoryPicture" />
+          <ScalarProperty Name="CProductCategoryName" ColumnName="CProductCategoryName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProductCommen">
+      <EntityTypeMapping TypeName="FarmerModel.ProductCommen">
+        <MappingFragment StoreEntitySet="ProductCommen">
+          <ScalarProperty Name="ProductCommentID" ColumnName="ProductCommentID" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="Content" ColumnName="Content" />
+          <ScalarProperty Name="CreatrDate" ColumnName="CreatrDate" />
+          <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProductSaleslist">
+      <EntityTypeMapping TypeName="FarmerModel.ProductSaleslist">
+        <MappingFragment StoreEntitySet="ProductSaleslist">
+          <ScalarProperty Name="ProductSaleslistID" ColumnName="ProductSaleslistID" />
+          <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+          <ScalarProperty Name="SalesPrice" ColumnName="SalesPrice" />
+          <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+          <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Reciever">
+      <EntityTypeMapping TypeName="FarmerModel.Reciever">
+        <MappingFragment StoreEntitySet="Reciever">
+          <ScalarProperty Name="RecieverID" ColumnName="RecieverID" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="RecieverName" ColumnName="RecieverName" />
+          <ScalarProperty Name="RecieverPhone" ColumnName="RecieverPhone" />
+          <ScalarProperty Name="RecieverAddress" ColumnName="RecieverAddress" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Region">
+      <EntityTypeMapping TypeName="FarmerModel.Region">
+        <MappingFragment StoreEntitySet="Region">
+          <ScalarProperty Name="RegionID" ColumnName="RegionID" />
+          <ScalarProperty Name="RegionName" ColumnName="RegionName" />
+          <ScalarProperty Name="CityID" ColumnName="CityID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ShelvesState">
+      <EntityTypeMapping TypeName="FarmerModel.ShelvesState">
+        <MappingFragment StoreEntitySet="ShelvesState">
+          <ScalarProperty Name="ShelvesStateID" ColumnName="ShelvesStateID" />
+          <ScalarProperty Name="ShelvesState1" ColumnName="ShelvesState" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Shopping">
+      <EntityTypeMapping TypeName="FarmerModel.Shopping">
+        <MappingFragment StoreEntitySet="Shopping">
+          <ScalarProperty Name="ShoppingID" ColumnName="ShoppingID" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="CheckOut" ColumnName="CheckOut" />
+          <ScalarProperty Name="cookie" ColumnName="cookie" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SourceInformation">
+      <EntityTypeMapping TypeName="FarmerModel.SourceInformation">
+        <MappingFragment StoreEntitySet="SourceInformation">
+          <ScalarProperty Name="SourceInformationID" ColumnName="SourceInformationID" />
+          <ScalarProperty Name="SourceInformationName" ColumnName="SourceInformationName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SubProductCategories">
+      <EntityTypeMapping TypeName="FarmerModel.SubProductCategories">
+        <MappingFragment StoreEntitySet="SubProductCategories">
+          <ScalarProperty Name="SubProductCategoriesID" ColumnName="SubProductCategoriesID" />
+          <ScalarProperty Name="ProductCategoriesMID" ColumnName="ProductCategoriesMID" />
+          <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="FarmerModel.sysdiagrams">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="verify">
+      <EntityTypeMapping TypeName="FarmerModel.verify">
+        <MappingFragment StoreEntitySet="verify">
+          <ScalarProperty Name="VerifyID" ColumnName="VerifyID" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="VerifyCheckID" ColumnName="VerifyCheckID" />
+          <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VerifyCheckID">
+      <EntityTypeMapping TypeName="FarmerModel.VerifyCheckID">
+        <MappingFragment StoreEntitySet="VerifyCheckID">
+          <ScalarProperty Name="VerifyCheckID1" ColumnName="VerifyCheckID" />
+          <ScalarProperty Name="VerifyCheckName" ColumnName="VerifyCheckName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VerifyDetial">
+      <EntityTypeMapping TypeName="FarmerModel.VerifyDetial">
+        <MappingFragment StoreEntitySet="VerifyDetial">
+          <ScalarProperty Name="VerifyDetialID" ColumnName="VerifyDetialID" />
+          <ScalarProperty Name="VerifyID" ColumnName="VerifyID" />
+          <ScalarProperty Name="FarmName" ColumnName="FarmName" />
+          <ScalarProperty Name="CityID" ColumnName="CityID" />
+          <ScalarProperty Name="RegionID" ColumnName="RegionID" />
+          <ScalarProperty Name="FarmAdress" ColumnName="FarmAdress" />
+          <ScalarProperty Name="FarmPhoto" ColumnName="FarmPhoto" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

@@ -1,0 +1,771 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="FarmerModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="ActivitI">
+    <Key>
+      <PropertyRef Name="ActivitID" />
+    </Key>
+    <Property Name="ActivitID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ActivityCategoriesID" Type="int" />
+    <Property Name="ActivityName" Type="nvarchar" MaxLength="40" Nullable="false" />
+    <Property Name="ActivityStatus" Type="bit" />
+  </EntityType>
+  <EntityType Name="ActivitIDetail">
+    <Key>
+      <PropertyRef Name="ActivitIDetailID" />
+    </Key>
+    <Property Name="ActivitIDetailID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ActivitIID" Type="int" />
+    <Property Name="ProductID" Type="int" />
+    <Property Name="SalePrice" Type="int" />
+    <Property Name="StateDate" Type="datetime" Nullable="false" />
+    <Property Name="EndDate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ActivityCategories">
+    <Key>
+      <PropertyRef Name="ActivityCategoriesID" />
+    </Key>
+    <Property Name="ActivityCategoriesID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ActivityCategoriesName" Type="nvarchar" MaxLength="20" />
+    <Property Name="ActivityCategoriesDescription" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Chat">
+    <Key>
+      <PropertyRef Name="ChatID" />
+    </Key>
+    <Property Name="ChatID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SendID" Type="int" />
+    <Property Name="ReceiveID" Type="int" />
+    <Property Name="ChatTime" Type="datetime" />
+    <Property Name="ChatText" Type="nvarchar(max)" />
+    <Property Name="ChatState" Type="nvarchar" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="City">
+    <Key>
+      <PropertyRef Name="CityID" />
+    </Key>
+    <Property Name="CityID" Type="nvarchar" MaxLength="1" Nullable="false" />
+    <Property Name="CityName" Type="nvarchar" MaxLength="20" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Identity">
+    <Key>
+      <PropertyRef Name="IdentityID" />
+    </Key>
+    <Property Name="IdentityID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IdentityName" Type="nvarchar" MaxLength="10" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Member">
+    <Key>
+      <PropertyRef Name="UserID" />
+    </Key>
+    <Property Name="UserID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserAccount" Type="nvarchar" MaxLength="16" Nullable="false" />
+    <Property Name="UsePass" Type="nvarchar" MaxLength="36" Nullable="false" />
+    <Property Name="GUID" Type="nvarchar" MaxLength="36" Nullable="false" />
+    <Property Name="UserName" Type="nvarchar" MaxLength="16" Nullable="false" />
+    <Property Name="UserPhone" Type="nvarchar" MaxLength="20" />
+    <Property Name="UserSex" Type="bit" Nullable="false" />
+    <Property Name="City" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="Region" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="Adress" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="EMail" Type="nvarchar" MaxLength="50" />
+    <Property Name="RegistetedDate" Type="datetime" />
+    <Property Name="Permission" Type="bit" />
+    <Property Name="SourceInformationID" Type="int" />
+    <Property Name="IdentityID" Type="int" />
+    <Property Name="MemberBonus" Type="int" />
+  </EntityType>
+  <EntityType Name="MemberBonuss">
+    <Key>
+      <PropertyRef Name="MemberBonusID" />
+    </Key>
+    <Property Name="MemberBonusID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserID" Type="int" Nullable="false" />
+    <Property Name="MemberBonus" Type="int" />
+    <Property Name="AddDay" Type="datetime" Nullable="false" />
+    <Property Name="Remarks" Type="nvarchar(max)" />
+    <Property Name="BonusStatus" Type="bit" />
+  </EntityType>
+  <EntityType Name="MemberParticipation">
+    <Key>
+      <PropertyRef Name="MemberParticipationID" />
+    </Key>
+    <Property Name="MemberParticipationID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ActivitIDetailD" Type="int" />
+    <Property Name="UserID" Type="int" />
+  </EntityType>
+  <EntityType Name="NoticeMes">
+    <Key>
+      <PropertyRef Name="NoticeMesID" />
+    </Key>
+    <Property Name="NoticeMesID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserID" Type="int" />
+    <Property Name="NoticeMesTitle" Type="nvarchar" MaxLength="50" />
+    <Property Name="NoticeMesdetail" Type="nvarchar(max)" />
+    <Property Name="NoticeMesTime" Type="datetime" Nullable="false" />
+    <Property Name="NoticeMesRead" Type="bit" />
+  </EntityType>
+  <EntityType Name="OrderDetail">
+    <Key>
+      <PropertyRef Name="OrderDetailID" />
+    </Key>
+    <Property Name="OrderDetailID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="OrderID" Type="int" />
+    <Property Name="ProductID" Type="int" />
+    <Property Name="Price" Type="int" Nullable="false" />
+    <Property Name="Quantity" Type="int" Nullable="false" />
+    <Property Name="Subtotal" Type="int" />
+    <Property Name="OrderStatusID" Type="int" />
+  </EntityType>
+  <EntityType Name="Orders">
+    <Key>
+      <PropertyRef Name="OrderID" />
+    </Key>
+    <Property Name="OrderID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserID" Type="int" />
+    <Property Name="RecieverID" Type="int" />
+    <Property Name="Email" Type="nvarchar" MaxLength="50" />
+    <Property Name="PaymentNerhodID" Type="int" />
+    <Property Name="OrderStatusID" Type="int" />
+    <Property Name="TransactionDate" Type="datetime" />
+    <Property Name="OrderRemarks" Type="nvarchar" MaxLength="50" />
+    <Property Name="Bonuss" Type="int" />
+  </EntityType>
+  <EntityType Name="OrderStatus">
+    <Key>
+      <PropertyRef Name="OrderStatusID" />
+    </Key>
+    <Property Name="OrderStatusID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="OrderStatusName" Type="nvarchar" MaxLength="10" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PaymentNerhod">
+    <Key>
+      <PropertyRef Name="PaymentNerhodID" />
+    </Key>
+    <Property Name="PaymentNerhodID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PaymentNerhod" Type="nvarchar" MaxLength="6" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Product">
+    <Key>
+      <PropertyRef Name="ProductID" />
+    </Key>
+    <Property Name="ProductID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ProductName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Description" Type="nchar" MaxLength="150" Nullable="false" />
+    <Property Name="Price" Type="int" />
+    <Property Name="PublishDate" Type="datetime" Nullable="false" />
+    <Property Name="Quantity" Type="int" />
+    <Property Name="ProductPositioning" Type="nvarchar" MaxLength="16" />
+    <Property Name="Shelves" Type="bit" Nullable="false" />
+    <Property Name="ProducltImage" Type="varbinary(max)" />
+    <Property Name="supplierID" Type="int" />
+    <Property Name="QRcode" Type="varbinary(max)" />
+    <Property Name="ShelvesStateID" Type="int" />
+  </EntityType>
+  <EntityType Name="ProductCategoriesM">
+    <Key>
+      <PropertyRef Name="ProductCategoriesMID" />
+    </Key>
+    <Property Name="ProductCategoriesMID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ProductCategoriesMName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="ProductCategoriesID" Type="int" />
+    <Property Name="CProductCategoriesMName" Type="nvarchar" MaxLength="35" />
+  </EntityType>
+  <EntityType Name="ProductCategory">
+    <Key>
+      <PropertyRef Name="ProductCategoryID" />
+    </Key>
+    <Property Name="ProductCategoryID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ProductCategoryName" Type="nvarchar" MaxLength="32" />
+    <Property Name="ProductDescription" Type="nvarchar" MaxLength="32" />
+    <Property Name="ProductCategoryPicture" Type="varbinary(max)" />
+    <Property Name="CProductCategoryName" Type="nvarchar" MaxLength="32" />
+  </EntityType>
+  <EntityType Name="ProductCommen">
+    <Key>
+      <PropertyRef Name="ProductCommentID" />
+    </Key>
+    <Property Name="ProductCommentID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserID" Type="int" />
+    <Property Name="Content" Type="nvarchar" MaxLength="250" />
+    <Property Name="CreatrDate" Type="datetime" />
+    <Property Name="ProductID" Type="int" />
+  </EntityType>
+  <EntityType Name="ProductSaleslist">
+    <Key>
+      <PropertyRef Name="ProductSaleslistID" />
+    </Key>
+    <Property Name="ProductSaleslistID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ProductID" Type="int" />
+    <Property Name="SalesPrice" Type="int" Nullable="false" />
+    <Property Name="StartDate" Type="datetime" Nullable="false" />
+    <Property Name="EndDate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Reciever">
+    <Key>
+      <PropertyRef Name="RecieverID" />
+    </Key>
+    <Property Name="RecieverID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserID" Type="int" />
+    <Property Name="RecieverName" Type="nvarchar" MaxLength="10" />
+    <Property Name="RecieverPhone" Type="nvarchar" MaxLength="20" />
+    <Property Name="RecieverAddress" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Region">
+    <Key>
+      <PropertyRef Name="RegionID" />
+    </Key>
+    <Property Name="RegionID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="RegionName" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="CityID" Type="nvarchar" MaxLength="1" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ShelvesState">
+    <Key>
+      <PropertyRef Name="ShelvesStateID" />
+    </Key>
+    <Property Name="ShelvesStateID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ShelvesState" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Shopping">
+    <Key>
+      <PropertyRef Name="ShoppingID" />
+    </Key>
+    <Property Name="ShoppingID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserID" Type="int" />
+    <Property Name="ProductID" Type="int" />
+    <Property Name="Quantity" Type="int" />
+    <Property Name="CheckOut" Type="bit" />
+    <Property Name="cookie" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="SourceInformation">
+    <Key>
+      <PropertyRef Name="SourceInformationID" />
+    </Key>
+    <Property Name="SourceInformationID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SourceInformationName" Type="nvarchar" MaxLength="30" />
+  </EntityType>
+  <EntityType Name="SubProductCategories">
+    <Key>
+      <PropertyRef Name="SubProductCategoriesID" />
+    </Key>
+    <Property Name="SubProductCategoriesID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ProductCategoriesMID" Type="int" />
+    <Property Name="ProductID" Type="int" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="verify">
+    <Key>
+      <PropertyRef Name="VerifyID" />
+    </Key>
+    <Property Name="VerifyID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserID" Type="int" />
+    <Property Name="VerifyCheckID" Type="int" />
+    <Property Name="Remarks" Type="nvarchar" MaxLength="30" />
+  </EntityType>
+  <EntityType Name="VerifyCheckID">
+    <Key>
+      <PropertyRef Name="VerifyCheckID" />
+    </Key>
+    <Property Name="VerifyCheckID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="VerifyCheckName" Type="nvarchar" MaxLength="30" />
+  </EntityType>
+  <EntityType Name="VerifyDetial">
+    <Key>
+      <PropertyRef Name="VerifyDetialID" />
+    </Key>
+    <Property Name="VerifyDetialID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="VerifyID" Type="int" />
+    <Property Name="FarmName" Type="nvarchar" MaxLength="20" />
+    <Property Name="CityID" Type="nchar" MaxLength="1" />
+    <Property Name="RegionID" Type="int" />
+    <Property Name="FarmAdress" Type="nvarchar" MaxLength="50" />
+    <Property Name="FarmPhoto" Type="varbinary(max)" />
+  </EntityType>
+  <Association Name="FK_ActivitI_ActivityCategories">
+    <End Role="ActivityCategories" Type="Self.ActivityCategories" Multiplicity="0..1" />
+    <End Role="ActivitI" Type="Self.ActivitI" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ActivityCategories">
+        <PropertyRef Name="ActivityCategoriesID" />
+      </Principal>
+      <Dependent Role="ActivitI">
+        <PropertyRef Name="ActivityCategoriesID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ActivitIDetail_ActivitI">
+    <End Role="ActivitI" Type="Self.ActivitI" Multiplicity="0..1" />
+    <End Role="ActivitIDetail" Type="Self.ActivitIDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ActivitI">
+        <PropertyRef Name="ActivitID" />
+      </Principal>
+      <Dependent Role="ActivitIDetail">
+        <PropertyRef Name="ActivitIID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ActivitIDetail_Product">
+    <End Role="Product" Type="Self.Product" Multiplicity="0..1" />
+    <End Role="ActivitIDetail" Type="Self.ActivitIDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Product">
+        <PropertyRef Name="ProductID" />
+      </Principal>
+      <Dependent Role="ActivitIDetail">
+        <PropertyRef Name="ProductID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Member_Identity">
+    <End Role="Identity" Type="Self.Identity" Multiplicity="0..1" />
+    <End Role="Member" Type="Self.Member" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Identity">
+        <PropertyRef Name="IdentityID" />
+      </Principal>
+      <Dependent Role="Member">
+        <PropertyRef Name="IdentityID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Member_SourceInformation">
+    <End Role="SourceInformation" Type="Self.SourceInformation" Multiplicity="0..1" />
+    <End Role="Member" Type="Self.Member" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SourceInformation">
+        <PropertyRef Name="SourceInformationID" />
+      </Principal>
+      <Dependent Role="Member">
+        <PropertyRef Name="SourceInformationID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MemberBonuss_Member">
+    <End Role="Member" Type="Self.Member" Multiplicity="1" />
+    <End Role="MemberBonuss" Type="Self.MemberBonuss" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Member">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="MemberBonuss">
+        <PropertyRef Name="UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MemberParticipation_ActivitIDetail">
+    <End Role="ActivitIDetail" Type="Self.ActivitIDetail" Multiplicity="0..1" />
+    <End Role="MemberParticipation" Type="Self.MemberParticipation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ActivitIDetail">
+        <PropertyRef Name="ActivitIDetailID" />
+      </Principal>
+      <Dependent Role="MemberParticipation">
+        <PropertyRef Name="ActivitIDetailD" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MemberParticipation_Member">
+    <End Role="Member" Type="Self.Member" Multiplicity="0..1" />
+    <End Role="MemberParticipation" Type="Self.MemberParticipation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Member">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="MemberParticipation">
+        <PropertyRef Name="UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_NoticeMes_Member">
+    <End Role="Member" Type="Self.Member" Multiplicity="0..1" />
+    <End Role="NoticeMes" Type="Self.NoticeMes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Member">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="NoticeMes">
+        <PropertyRef Name="UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Order_OrderStatus">
+    <End Role="OrderStatus" Type="Self.OrderStatus" Multiplicity="0..1" />
+    <End Role="Orders" Type="Self.Orders" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="OrderStatus">
+        <PropertyRef Name="OrderStatusID" />
+      </Principal>
+      <Dependent Role="Orders">
+        <PropertyRef Name="OrderStatusID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Order_PaymentNerhod">
+    <End Role="PaymentNerhod" Type="Self.PaymentNerhod" Multiplicity="0..1" />
+    <End Role="Orders" Type="Self.Orders" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PaymentNerhod">
+        <PropertyRef Name="PaymentNerhodID" />
+      </Principal>
+      <Dependent Role="Orders">
+        <PropertyRef Name="PaymentNerhodID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Order_Reciever">
+    <End Role="Reciever" Type="Self.Reciever" Multiplicity="0..1" />
+    <End Role="Orders" Type="Self.Orders" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Reciever">
+        <PropertyRef Name="RecieverID" />
+      </Principal>
+      <Dependent Role="Orders">
+        <PropertyRef Name="RecieverID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_OrderDetail_Order">
+    <End Role="Orders" Type="Self.Orders" Multiplicity="0..1" />
+    <End Role="OrderDetail" Type="Self.OrderDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Orders">
+        <PropertyRef Name="OrderID" />
+      </Principal>
+      <Dependent Role="OrderDetail">
+        <PropertyRef Name="OrderID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_OrderDetail_Product">
+    <End Role="Product" Type="Self.Product" Multiplicity="0..1" />
+    <End Role="OrderDetail" Type="Self.OrderDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Product">
+        <PropertyRef Name="ProductID" />
+      </Principal>
+      <Dependent Role="OrderDetail">
+        <PropertyRef Name="ProductID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Product_Member">
+    <End Role="Member" Type="Self.Member" Multiplicity="0..1" />
+    <End Role="Product" Type="Self.Product" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Member">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="Product">
+        <PropertyRef Name="supplierID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Product_ShelvesState">
+    <End Role="ShelvesState" Type="Self.ShelvesState" Multiplicity="0..1" />
+    <End Role="Product" Type="Self.Product" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ShelvesState">
+        <PropertyRef Name="ShelvesStateID" />
+      </Principal>
+      <Dependent Role="Product">
+        <PropertyRef Name="ShelvesStateID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProductCategoriesM_ProductCategory">
+    <End Role="ProductCategory" Type="Self.ProductCategory" Multiplicity="0..1" />
+    <End Role="ProductCategoriesM" Type="Self.ProductCategoriesM" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ProductCategory">
+        <PropertyRef Name="ProductCategoryID" />
+      </Principal>
+      <Dependent Role="ProductCategoriesM">
+        <PropertyRef Name="ProductCategoriesID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProductCommen_Member">
+    <End Role="Member" Type="Self.Member" Multiplicity="0..1" />
+    <End Role="ProductCommen" Type="Self.ProductCommen" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Member">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="ProductCommen">
+        <PropertyRef Name="UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProductCommen_Product">
+    <End Role="Product" Type="Self.Product" Multiplicity="0..1" />
+    <End Role="ProductCommen" Type="Self.ProductCommen" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Product">
+        <PropertyRef Name="ProductID" />
+      </Principal>
+      <Dependent Role="ProductCommen">
+        <PropertyRef Name="ProductID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProductSaleslist_Product">
+    <End Role="Product" Type="Self.Product" Multiplicity="0..1" />
+    <End Role="ProductSaleslist" Type="Self.ProductSaleslist" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Product">
+        <PropertyRef Name="ProductID" />
+      </Principal>
+      <Dependent Role="ProductSaleslist">
+        <PropertyRef Name="ProductID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Region_City">
+    <End Role="City" Type="Self.City" Multiplicity="1" />
+    <End Role="Region" Type="Self.Region" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="City">
+        <PropertyRef Name="CityID" />
+      </Principal>
+      <Dependent Role="Region">
+        <PropertyRef Name="CityID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Shopping_Member">
+    <End Role="Member" Type="Self.Member" Multiplicity="0..1" />
+    <End Role="Shopping" Type="Self.Shopping" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Member">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="Shopping">
+        <PropertyRef Name="UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Shopping_Product">
+    <End Role="Product" Type="Self.Product" Multiplicity="0..1" />
+    <End Role="Shopping" Type="Self.Shopping" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Product">
+        <PropertyRef Name="ProductID" />
+      </Principal>
+      <Dependent Role="Shopping">
+        <PropertyRef Name="ProductID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SubProductCategories_Product">
+    <End Role="Product" Type="Self.Product" Multiplicity="0..1" />
+    <End Role="SubProductCategories" Type="Self.SubProductCategories" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Product">
+        <PropertyRef Name="ProductID" />
+      </Principal>
+      <Dependent Role="SubProductCategories">
+        <PropertyRef Name="ProductID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SubProductCategories_ProductCategoriesM">
+    <End Role="ProductCategoriesM" Type="Self.ProductCategoriesM" Multiplicity="0..1" />
+    <End Role="SubProductCategories" Type="Self.SubProductCategories" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ProductCategoriesM">
+        <PropertyRef Name="ProductCategoriesMID" />
+      </Principal>
+      <Dependent Role="SubProductCategories">
+        <PropertyRef Name="ProductCategoriesMID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_verify_Member">
+    <End Role="Member" Type="Self.Member" Multiplicity="0..1" />
+    <End Role="verify" Type="Self.verify" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Member">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="verify">
+        <PropertyRef Name="UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_verify_VerifyCheckID">
+    <End Role="VerifyCheckID" Type="Self.VerifyCheckID" Multiplicity="0..1" />
+    <End Role="verify" Type="Self.verify" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="VerifyCheckID">
+        <PropertyRef Name="VerifyCheckID" />
+      </Principal>
+      <Dependent Role="verify">
+        <PropertyRef Name="VerifyCheckID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_VerifyDetial_verify">
+    <End Role="verify" Type="Self.verify" Multiplicity="0..1" />
+    <End Role="VerifyDetial" Type="Self.VerifyDetial" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="verify">
+        <PropertyRef Name="VerifyID" />
+      </Principal>
+      <Dependent Role="VerifyDetial">
+        <PropertyRef Name="VerifyID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="FarmerModelStoreContainer">
+    <EntitySet Name="ActivitI" EntityType="Self.ActivitI" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ActivitIDetail" EntityType="Self.ActivitIDetail" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ActivityCategories" EntityType="Self.ActivityCategories" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Chat" EntityType="Self.Chat" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="City" EntityType="Self.City" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Identity" EntityType="Self.Identity" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Member" EntityType="Self.Member" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MemberBonuss" EntityType="Self.MemberBonuss" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MemberParticipation" EntityType="Self.MemberParticipation" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="NoticeMes" EntityType="Self.NoticeMes" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="OrderDetail" EntityType="Self.OrderDetail" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Orders" EntityType="Self.Orders" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="OrderStatus" EntityType="Self.OrderStatus" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PaymentNerhod" EntityType="Self.PaymentNerhod" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Product" EntityType="Self.Product" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ProductCategoriesM" EntityType="Self.ProductCategoriesM" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ProductCategory" EntityType="Self.ProductCategory" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ProductCommen" EntityType="Self.ProductCommen" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ProductSaleslist" EntityType="Self.ProductSaleslist" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Reciever" EntityType="Self.Reciever" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Region" EntityType="Self.Region" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ShelvesState" EntityType="Self.ShelvesState" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Shopping" EntityType="Self.Shopping" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SourceInformation" EntityType="Self.SourceInformation" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SubProductCategories" EntityType="Self.SubProductCategories" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="verify" EntityType="Self.verify" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="VerifyCheckID" EntityType="Self.VerifyCheckID" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="VerifyDetial" EntityType="Self.VerifyDetial" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_ActivitI_ActivityCategories" Association="Self.FK_ActivitI_ActivityCategories">
+      <End Role="ActivityCategories" EntitySet="ActivityCategories" />
+      <End Role="ActivitI" EntitySet="ActivitI" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ActivitIDetail_ActivitI" Association="Self.FK_ActivitIDetail_ActivitI">
+      <End Role="ActivitI" EntitySet="ActivitI" />
+      <End Role="ActivitIDetail" EntitySet="ActivitIDetail" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ActivitIDetail_Product" Association="Self.FK_ActivitIDetail_Product">
+      <End Role="Product" EntitySet="Product" />
+      <End Role="ActivitIDetail" EntitySet="ActivitIDetail" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Member_Identity" Association="Self.FK_Member_Identity">
+      <End Role="Identity" EntitySet="Identity" />
+      <End Role="Member" EntitySet="Member" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Member_SourceInformation" Association="Self.FK_Member_SourceInformation">
+      <End Role="SourceInformation" EntitySet="SourceInformation" />
+      <End Role="Member" EntitySet="Member" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MemberBonuss_Member" Association="Self.FK_MemberBonuss_Member">
+      <End Role="Member" EntitySet="Member" />
+      <End Role="MemberBonuss" EntitySet="MemberBonuss" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MemberParticipation_ActivitIDetail" Association="Self.FK_MemberParticipation_ActivitIDetail">
+      <End Role="ActivitIDetail" EntitySet="ActivitIDetail" />
+      <End Role="MemberParticipation" EntitySet="MemberParticipation" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MemberParticipation_Member" Association="Self.FK_MemberParticipation_Member">
+      <End Role="Member" EntitySet="Member" />
+      <End Role="MemberParticipation" EntitySet="MemberParticipation" />
+    </AssociationSet>
+    <AssociationSet Name="FK_NoticeMes_Member" Association="Self.FK_NoticeMes_Member">
+      <End Role="Member" EntitySet="Member" />
+      <End Role="NoticeMes" EntitySet="NoticeMes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Order_OrderStatus" Association="Self.FK_Order_OrderStatus">
+      <End Role="OrderStatus" EntitySet="OrderStatus" />
+      <End Role="Orders" EntitySet="Orders" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Order_PaymentNerhod" Association="Self.FK_Order_PaymentNerhod">
+      <End Role="PaymentNerhod" EntitySet="PaymentNerhod" />
+      <End Role="Orders" EntitySet="Orders" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Order_Reciever" Association="Self.FK_Order_Reciever">
+      <End Role="Reciever" EntitySet="Reciever" />
+      <End Role="Orders" EntitySet="Orders" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OrderDetail_Order" Association="Self.FK_OrderDetail_Order">
+      <End Role="Orders" EntitySet="Orders" />
+      <End Role="OrderDetail" EntitySet="OrderDetail" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OrderDetail_Product" Association="Self.FK_OrderDetail_Product">
+      <End Role="Product" EntitySet="Product" />
+      <End Role="OrderDetail" EntitySet="OrderDetail" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Product_Member" Association="Self.FK_Product_Member">
+      <End Role="Member" EntitySet="Member" />
+      <End Role="Product" EntitySet="Product" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Product_ShelvesState" Association="Self.FK_Product_ShelvesState">
+      <End Role="ShelvesState" EntitySet="ShelvesState" />
+      <End Role="Product" EntitySet="Product" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProductCategoriesM_ProductCategory" Association="Self.FK_ProductCategoriesM_ProductCategory">
+      <End Role="ProductCategory" EntitySet="ProductCategory" />
+      <End Role="ProductCategoriesM" EntitySet="ProductCategoriesM" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProductCommen_Member" Association="Self.FK_ProductCommen_Member">
+      <End Role="Member" EntitySet="Member" />
+      <End Role="ProductCommen" EntitySet="ProductCommen" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProductCommen_Product" Association="Self.FK_ProductCommen_Product">
+      <End Role="Product" EntitySet="Product" />
+      <End Role="ProductCommen" EntitySet="ProductCommen" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProductSaleslist_Product" Association="Self.FK_ProductSaleslist_Product">
+      <End Role="Product" EntitySet="Product" />
+      <End Role="ProductSaleslist" EntitySet="ProductSaleslist" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Region_City" Association="Self.FK_Region_City">
+      <End Role="City" EntitySet="City" />
+      <End Role="Region" EntitySet="Region" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Shopping_Member" Association="Self.FK_Shopping_Member">
+      <End Role="Member" EntitySet="Member" />
+      <End Role="Shopping" EntitySet="Shopping" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Shopping_Product" Association="Self.FK_Shopping_Product">
+      <End Role="Product" EntitySet="Product" />
+      <End Role="Shopping" EntitySet="Shopping" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SubProductCategories_Product" Association="Self.FK_SubProductCategories_Product">
+      <End Role="Product" EntitySet="Product" />
+      <End Role="SubProductCategories" EntitySet="SubProductCategories" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SubProductCategories_ProductCategoriesM" Association="Self.FK_SubProductCategories_ProductCategoriesM">
+      <End Role="ProductCategoriesM" EntitySet="ProductCategoriesM" />
+      <End Role="SubProductCategories" EntitySet="SubProductCategories" />
+    </AssociationSet>
+    <AssociationSet Name="FK_verify_Member" Association="Self.FK_verify_Member">
+      <End Role="Member" EntitySet="Member" />
+      <End Role="verify" EntitySet="verify" />
+    </AssociationSet>
+    <AssociationSet Name="FK_verify_VerifyCheckID" Association="Self.FK_verify_VerifyCheckID">
+      <End Role="VerifyCheckID" EntitySet="VerifyCheckID" />
+      <End Role="verify" EntitySet="verify" />
+    </AssociationSet>
+    <AssociationSet Name="FK_VerifyDetial_verify" Association="Self.FK_VerifyDetial_verify">
+      <End Role="verify" EntitySet="verify" />
+      <End Role="VerifyDetial" EntitySet="VerifyDetial" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

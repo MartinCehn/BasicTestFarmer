@@ -1,0 +1,40 @@
+﻿@model IEnumerable<BasicTestFarmer.Models.shoplist>
+@{
+    ViewBag.Title = "ShoppingCar";
+}
+
+<h2>會員購物車清單</h2>
+
+<table class="table">
+    <tr>
+        <th>產品名稱</th>
+        <th>單價</th>
+        <th>產品數量</th>
+        <th>小計</th>
+        <th>刪除</th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @item.ProductName
+            </td>
+            <td>
+                @item.Price
+            </td>
+            <td>
+                @item.Quantity
+            </td>
+            <td>
+                @item.total
+            </td>
+            <td>
+                <a href="@Url.Action("ShoppingCarDelete")?ShoppingID=@item.ShoppingID" class="btn btn-danger">刪除購物車</a>
+            </td>
+        </tr>
+    }
+
+</table>
+

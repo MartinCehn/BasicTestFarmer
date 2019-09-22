@@ -1,0 +1,85 @@
+﻿@model IEnumerable<BasicTestFarmer.Models.Product>
+@{
+    ViewBag.Title = "Product";
+}
+<style>
+    tbody >tr:nth-child(7n+1){
+        background-color:#b7d8fd
+    }
+    tbody > tr:nth-child(7n+2) {
+        background-color: #d6d8db
+    }
+    tbody > tr:nth-child(7n+3) {
+        background-color: #bde7cc
+    }
+    tbody > tr:nth-child(7n+4) {
+        background-color: #f9c6cb
+    }
+    tbody > tr:nth-child(7n+5) {
+        background-color: #fff0be
+    }
+    tbody > tr:nth-child(7n+6) {
+        background-color: #bae4ea
+    }
+    tbody > tr:nth-child(7n+7) {
+        background-color: #0094ff
+    }
+</style>
+<h2>Product</h2>
+
+<div>
+    <a class="btn btn-primary" type="button" href="@Url.Action("CreateProduct","Products",new { area="Backstage"})" style="margin:5px">新增產品</a>
+    <a class="btn btn-success" href="@Url.Action("Index","Members",new { area="Backstage"})" style="margin:5px">會員管理區</a>
+    <a class="btn btn-info" href="~/Home/GetProduct" style="margin:5px">產品首頁</a>
+</div>
+
+<table class="table">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col">@Html.DisplayNameFor(model => model.ProducltImage)</th>
+            <th scope="col">@Html.DisplayNameFor(model => model.ProductName)</th>
+            <th scope="col">@Html.DisplayNameFor(model => model.Price)</th>
+            <th scope="col">@Html.DisplayNameFor(model => model.Quantity)</th>
+            <th scope="col">@Html.DisplayNameFor(model => model.PublishDate)</th>
+            <th scope="col">@Html.DisplayNameFor(model => model.ProductPositioning)</th>
+            <th scope="col">@Html.DisplayNameFor(model => model.Shelves)</th>
+            <th scope="col">@Html.DisplayNameFor(model => model.Description)</th>
+            <th scope="col" class="text-right pr-0">狀態</th>
+            <th scope="col" class="pl-0">修改</th>
+        </tr>
+    </thead>
+    <tobody>
+        @foreach (var proitem in Model)
+        {
+        <tr>
+            <td><img src="@Url.Action("GetImageByte", "Products", new {id=proitem.ProductID })" class="thumb img-thumbnail" width="150" /></td>
+            <td style="width:50px"><p>@Html.DisplayFor(model => proitem.ProductName)</p></td>
+            <td>@Html.DisplayFor(model => proitem.Price)</td>
+            <td>@Html.DisplayFor(model => proitem.Quantity)</td>
+            <td>@Html.DisplayFor(model => proitem.PublishDate)</td>
+            <td>@Html.DisplayFor(model => proitem.ProductPositioning)</td>
+            @*<td>@Html.DisplayFor(model => proitem.Shelves)</td>*@
+            @if (proitem.ShelvesStateID == 1)
+            {
+                <td>上架</td>
+            }
+            else if (proitem.ShelvesStateID == 2)
+            {
+                <td>下架</td>
+            }
+            else
+            {
+                <td>未上市</td>
+            }
+            <td style="width:120px"><p>@Html.DisplayFor(model => proitem.Description)</p></td>
+            <td style="width:120px  ">
+                @Html.ActionLink("修改產品資料", "EditProduct", new { id = proitem.ProductID }, new { @class = "btn btn-warning" })
+            </td>
+            <td style="width:120px ;height:30px ">
+                @Html.ActionLink("刪除產品資料", "DelProduct", new { id = proitem.ProductID }, new { onclick = "return confirm('確定要刪除嗎?')",
+               @class = "btn btn-danger" })
+            </td>
+        </tr>
+        }
+    </tobody>
+</table>

@@ -1,0 +1,66 @@
+﻿@model List<BasicTestFarmer.Viewmodel.ProductRendition>
+@{
+    ViewBag.Title = "ProductRendition";
+}
+
+<h2>產品資訊</h2>
+<style>
+</style>
+
+<div class="row">
+    @foreach (var productdet in Model)
+    {
+        <div class="modal-body">
+            <div class="quickview_body">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12 col-lg-5">
+                            <div class="quickview_pro_img">
+                                <input type="text" value="@productdet.productID" hidden />
+                                <img class=" img-thumbnail" src="@Url.Action("GetImageByte","Home")/@productdet.productID" />
+                            </div>
+                        </div>
+
+                        <div class="col-12 col-lg-7">
+                            <div class="quickview_pro_des">
+                                <h1 class="title">@productdet.ProductName</h1>
+                                <div>
+                                    <span style="color:darkblue">
+                                        本商品有貨到付款服務，結帳時點選貨到付款選項。
+                                    </span>
+                                </div>
+                                @if (productdet.saleprice != 0)
+                                {
+                                    <h3 class="price" style="color:red;display:inline;font-size:35px">
+                                        特價: @productdet.saleprice
+                                    </h3>
+                                }
+                                <h3 style="display:inline">
+                                    <span style="font-size:25px">原價: @productdet.Price</span>
+                                </h3>
+                                <p style="font-size:15px ; color:blue">供應商: @productdet.Supplier</p>
+                                <p style="font-size:15px">庫存量: @productdet.Quantity</p>
+                                <p style="font-size:30px">@productdet.Description</p>
+                            </div>
+
+
+                            <form class="cart" method="post" action="~/Home/ShoppingCarAdd">
+                                <div class="quantity">
+                                    <span class="qty-minus" onclick="if (!window.__cfRLUnblockHandlers) return false; var effect = document.getElementById('qty'); var qty = effect.value; if (!isNaN(qty) & amp;&amp; qty > 1 ) effect.value--;return false;"><i style="color:white" class="fa fa-minus" aria-hidden="true"></i></span>
+                                    <input type="number" class="qty-text" id="Quantity" step="1" min="1" max="20" name="Quantity" value="1" >
+                                    <input hidden value="@productdet.productID" name="pid" id="pid"/>
+                                    <span class="qty-plus" onclick="if (!window.__cfRLUnblockHandlers) return false; var effect = document.getElementById('qty'); var qty = effect.value; if( !isNaN( qty )) effect.value++;return false;"><i style="color:white" class="fa fa-plus" aria-hidden="true"></i></span>
+                                </div>
+
+                            <div class="quantity mt-2">
+                                <button type="submit" name="addcar" value="@productdet.productID" class="cart-submit btn btn btn-primary" >加入購物車</button>
+                            </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+
+</div>
